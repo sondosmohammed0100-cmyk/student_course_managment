@@ -7,10 +7,13 @@
 #include<algorithm>
 
 #include<set>
+#include<utility>
+#include<map>
 class Managment
 {
 private:
 	vector<Student>students;
+	map<int,set<pair<int, string>>> course_student;
 	
 public:
 	
@@ -21,6 +24,9 @@ public:
 	void Search_Student(int id);
 	void Count_Student_if(double gpa);
 	void Count_Student(double gpa);
+	void Enroll_course(int id_student,int id_course,string name_course);
+	void DisplayCourses(int id_student);
+
 	
 
 

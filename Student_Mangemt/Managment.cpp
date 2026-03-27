@@ -20,31 +20,53 @@ void Managment::Add_Student(int id, string name, double gpa)
 	cout << "\nStudent Added succesfully" << endl;
 }
 
-void Managment::Remove_Student(int id)
+void Managment::Remove_Student(int id_student)
 {
-    for (auto it = students.begin();it != students.end();) {
-        if (it->get_Id() == id) {
-            it = students.erase(it);
-            cout << "\nStudent removed Successfully" << endl;
+    bool found = false;
+    
+        for (auto it = students.begin();it != students.end();) {
+            if (it->get_Id() == id_student) {
+                it = students.erase(it);
+                course_student.erase(id_student);
+                cout << "\nStudent removed Successfully" << endl;
+                found = true;
+            }
+            else {
+                ++it;
+
+            }
+
         }
-        else {
-            ++it;
-            
+        if (!found) {
+            cout << "\nStudent not found" << endl;
         }
 
-   }
+    
+    
+
+    
+        
+    
+    
 
 }
 
+    
+
+
+
 void Managment::Print_All_Students()
 {
-    
+    bool found = false;
 	
 	for (auto& s : students) {
 		cout << "\nId: " << s.get_Id()<<" Name: "<< s.get_name() <<" GPA: " << s.get_GPA() <<endl;
-		
+        found = true;
 		
 	}
+    if (!found) {
+        cout << "\n No Students found" << endl;
+    }
 }
 bool func(Student &s1, Student &s2) {
     return s1.get_GPA() > s2.get_GPA();
@@ -98,6 +120,49 @@ void Managment::Count_Student(double gpa)
   
     auto num_student = count(students.begin(), students.end(),gpa);
     cout << "Number of student is:  " << num_student << endl;
+}
+
+void Managment::Enroll_course(int id_student, int id_course, string name_course)
+{
+    auto found_student = find_if(students.begin(), students.end(),
+        [&id_student](Student s) {
+            return id_student == s.get_Id();
+        });
+    if (found_student != students.end()) {
+
+          course_student[id_student].insert({ id_course,name_course });
+    }
+    else {
+        cout << "\nThis id not found " << endl;
+    }
+
+}
+
+void Managment::DisplayCourses(int id_student)
+{
+    bool found = false;
+    cout << "\nStudent of Id: " << id_student <<" has these courses" << endl;
+    auto found_student = find_if(students.begin(), students.end(),
+        [&id_student](Student s) {
+            return id_student == s.get_Id();
+        });
+
+    
+    if (found_student != students.end()) {
+
+        for (auto& c : course_student[id_student]) {
+            cout << "\nId_course: " << c.first << " && Course_Name: " << c.second << endl;
+            found = true;
+        }
+        
+    }
+    else {
+        cout << "\nThis id not found " << endl;
+    }
+    if (!found) {
+        cout << "\n No courses found for this Student" << endl;
+    }
+    
 }
 
 
