@@ -10,8 +10,6 @@ protected:
 public:
 	Person(string n);
 	string get_name();
-
-
 };
 
 #endif // !PERSON_H_

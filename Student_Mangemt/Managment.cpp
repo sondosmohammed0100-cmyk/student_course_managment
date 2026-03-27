@@ -14,7 +14,6 @@ void Managment::Add_Student(int id, string name, double gpa)
         }
     }
 
-    
     Student student(id, name, gpa);
     students.push_back(student);
 	cout << "\nStudent Added succesfully" << endl;
@@ -41,19 +40,7 @@ void Managment::Remove_Student(int id_student)
             cout << "\nStudent not found" << endl;
         }
 
-    
-    
-
-    
-        
-    
-    
-
 }
-
-    
-
-
 
 void Managment::Print_All_Students()
 {

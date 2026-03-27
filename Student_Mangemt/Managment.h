@@ -16,7 +16,6 @@ private:
 	map<int,set<pair<int, string>>> course_student;
 	
 public:
-	
 	void Add_Student(int id, string name, double gpa);
 	void Remove_Student(int id);
 	void Print_All_Students();
@@ -26,10 +25,6 @@ public:
 	void Count_Student(double gpa);
 	void Enroll_course(int id_student,int id_course,string name_course);
 	void DisplayCourses(int id_student);
-
-	
-
-
 
 };
 #endif // !MANAGMENT_H_

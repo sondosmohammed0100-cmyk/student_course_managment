@@ -20,6 +20,7 @@ int main()
 //commands of Operations
     
     cout << "\nPlease follow these commands" << endl;
+    cout << "\n***********************************************" << endl;
     cout << "\n      Add --> for adding new student\n ";
     cout << "\n      Remove --> for delete student\n";
     cout << "\n      Search --> for finding student\n";
@@ -29,6 +30,7 @@ int main()
     cout << "\n      Sort --> for sort student by GPA\n";
     cout << "\n      count_if --> for Count number of students\n";
     cout << "\n      Exit --> for finishing the program\n";
+    cout << "\n***********************************************" << endl;
     cout << "\nEnter command" << endl;
     string command;
     while (true) {
@@ -100,7 +102,6 @@ int main()
             }
             cin.ignore();
 
-
         }
         else if (command == "sort") {
             m1.Sort_Students();
@@ -128,21 +129,12 @@ int main()
             cin >> gpa;
             m1.Count_Student(gpa);
             cin.ignore();
-
         }
 
         else {
             cout << "Command not Right" << endl;
         }
-
-
-
-
-    }
-
-    
-    
-    
+    }  
     
 }
 
